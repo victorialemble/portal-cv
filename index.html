@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal de CVs</title>
+  <script src="https://unpkg.com/tabletop@1.5.1/tabletop.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .filtros {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    .cv {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem auto;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .cv h3 {
+      margin: 0 0 0.5rem 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Portal de CVs</h1>
+  <div class="filtros">
+    <div>
+      <label for="filtroCarrera">Carrera:</label>
+      <select id="filtroCarrera" onchange="mostrarCVs()">
+        <option value="">Todas</option>
+        <option value="Biotecnología">Biotecnología</option>
+        <option value="Bioquímica">Bioquímica</option>
+        <option value="Ingeniería en Alimentos">Ingeniería en Alimentos</option>
+      </select>
+    </div>
+    <div>
+      <label for="filtroProvincia">Provincia:</label>
+      <select id="filtroProvincia" onchange="mostrarCVs()">
+        <option value="">Todas</option>
+        <option value="Buenos Aires">Buenos Aires</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Santa Fe">Santa Fe</option>
+        <option value="Mendoza">Mendoza</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="contenedor"></div>
+
+  <script>
+    let datos = [];
+
+    function init() {
+      Tabletop.init({
+        key: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcKyiPndTaRTCNW8AcyxUBI15I_z-GJE7pkvgpMhYSJDYhs5y7o4Lng4yXuruNuQN21_gLS84S4ETP/pubhtml',
+        callback: function(data) {
+          datos = data;
+          mostrarCVs();
+        },
+        simpleSheet: true
+      });
+    }
+
+    function mostrarCVs() {
+      const carrera = document.getElementById("filtroCarrera").value;
+      const provincia = document.getElementById("filtroProvincia").value;
+      const contenedor = document.getElementById("contenedor");
+      contenedor.innerHTML = "";
+
+      const filtrados = datos.filter(d => 
+        (carrera === "" || d.Carrera === carrera) &&
+        (provincia === "" || d.Provincia === provincia)
+      );
+
+      filtrados.forEach(d => {
+        const div = document.createElement("div");
+        div.className = "cv";
+        div.innerHTML = `
+          <h3>${d.Nombre}</h3>
+          <p><strong>Carrera:</strong> ${d.Carrera}</p>
+          <p><strong>Provincia:</strong> ${d.Provincia}</p>
+          <p><a href="${d['Link al CV en PDF']}" target="_blank">Ver CV en PDF</a></p>
+        `;
+        contenedor.appendChild(div);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
