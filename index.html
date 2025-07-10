@@ -103,15 +103,16 @@
     let datos = [];
 
     function init() {
-      Tabletop.init({
-        key: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcKyiPndTaRTCNW8AcyxUBI15I_z-GJE7pkvgpMhYSJDYhs5y7o4Lng4yXuruNuQN21_gLS84S4ETP/pubhtml?gid=923206532&single=true',
-        callback: function(data) {
-          datos = data;
-          mostrarCVs();
+        Tabletop.init({
+            key: '1vTcKyiPndTaRTCNW8AcyxUBI15I_z-GJE7pkvgpMhYSJDYhs5y7o4Lng4yXuruNuQN21_gLS84S4ETP', // solo el ID del sheet
+            callback: function(data) {
+                datos = data;
+                mostrarCVs();
         },
         simpleSheet: true
-      });
+        });
     }
+
 
     function mostrarCVs() {
       const carrera = document.getElementById("filtroCarrera").value;
