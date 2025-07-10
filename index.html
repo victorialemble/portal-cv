@@ -10,11 +10,12 @@
 
   <style>
     body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #f2f5fc;
-      color: #333;
-    }
+  background: radial-gradient(circle at top left, #edf2ff, #f7faff);
+  background-image: url('fondo-esferas.png'); /* si tenés una imagen de fondo tipo las esferas */
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+}
 
     header {
       background: linear-gradient(to right, #eaf0ff, #f6f8ff);
@@ -61,22 +62,36 @@
       padding: 2rem;
     }
 
-    .cv {
-      background: white;
-      border-radius: 12px;
-      padding: 1rem 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .cv:hover {
-      transform: scale(1.02);
-      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    }
-
-    .cv h3 {
-      margin-top: 0;
-    }
+.cv {
+  background: linear-gradient(135deg, #ffffff, #f0f4ff);
+  border-left: 6px solid #6a7dfd;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+.cv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.cv h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+}
+.cv p {
+  margin: 0.2rem 0;
+}
+.cv a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #6a7dfd;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cv a:hover {
+  text-decoration: underline;
+}
 
     footer {
       text-align: center;
