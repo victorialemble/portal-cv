@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portal de CVs - Nucleate Argentina</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <img src="logo-nucleate.png" alt="Logo Nucleate Argentina" />
+    <h1><span>Nucleate</span> <span>Argentina</span></h1>
+  </header>
+
+  <div class="filtros">
+    <div>
+      <label for="filtroCarrera">Carrera:</label>
+      <select id="filtroCarrera" onchange="mostrarCVs()">
+        <option value="">Todas</option>
+        <option value="Biotecnología">Biotecnología</option>
+        <option value="Bioquímica">Bioquímica</option>
+        <option value="Ingeniería en Alimentos">Ingeniería en Alimentos</option>
+        <option value="Ciencias Biológicas">Ciencias Biológicas</option>
+        <option value="Lic. en Genética">Lic. en Genética</option>
+        <option value="Lic. en Biología Molecular">Lic. en Biología Molecular</option>
+        <option value="Ingeniería Biomédica">Ingeniería Biomédica</option>
+        <option value="Microbiología">Microbiología</option>
+        <option value="Farmacia">Farmacia</option>
+        <option value="Administración de empresas">Administración de empresas</option>
+        <option value="Tecnicatura en Química">Tecnicatura en Química</option>
+        <option value="Licenciatura en Química">Licenciatura en Química</option>
+        <option value="Contabilidad">Contabilidad</option>
+        <option value="Ingeniería Industrial">Ingeniería Industrial</option>
+        <option value="Bioingeniería">Bioingeniería</option>
+        <option value="Ingeniería Química">Ingeniería Química</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+    <div>
+      <label for="filtroProvincia">Provincia:</label>
+      <select id="filtroProvincia" onchange="mostrarCVs()">
+        <option value="">Todas</option>
+        <option value="Buenos Aires">Buenos Aires</option>
+        <option value="CABA">CABA</option>
+        <option value="Córdoba">Córdoba</option>
+        <option value="Santa Fe">Santa Fe</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="contenedor"></div>
+
+  <script src="main.js"></script>
+
+  <footer>
+    &copy; Nucleate Argentina - Todos los derechos reservados
+  </footer>
+</body>
+</html>
