@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registrarse - Portal CVs</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="page-content">
+    <header>
+      <img src="logo-nucleate.png" alt="Logo Nucleate Argentina" />
+      <h1><span>Nucleate</span> <span>Argentina</span></h1>
+    </header>
+
+    <div class="login-container">
+      <h2>Registrarse</h2>
+      <input type="email" id="email" placeholder="Correo empresarial" />
+      <input type="password" id="password" placeholder="Contraseña" />
+      <input type="password" id="confirm" placeholder="Confirmar contraseña" />
+      <button onclick="registrar()">Crear cuenta</button>
+      <div class="login-footer">
+        Solo se aceptan emails corporativos autorizados.
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; Nucleate Argentina - Todos los derechos reservados
+  </footer>
+
+  <script>
+    async function registrar() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+      const confirm = document.getElementById("confirm").value;
+
+      if (!email || !password || !confirm) {
+        alert("Por favor completá todos los campos.");
+        return;
+      }
+      if (password !== confirm) {
+        alert("Las contraseñas no coinciden.");
+        return;
+      }
+
+      const res = await fetch("http://localhost:3000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (res.ok) {
+        alert("Registro exitoso. Ahora podés iniciar sesión.");
+        window.location.href = "login.html";
+      } else {
+        const err = await res.json();
+        alert(err.error || "Error al registrarse.");
+      }
+    }
+  </script>
+</body>
+</html>

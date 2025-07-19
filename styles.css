@@ -1,88 +1,161 @@
-body {
-  background: radial-gradient(circle at top left, #edf2ff, #f7faff);
-  background-image: url('fondo-esferas.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-family: 'Poppins', sans-serif;
+/* --------- ESTILO GENERAL --------- */
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------- ENCABEZADO --------- */
 header {
-  background: linear-gradient(to right, #eaf0ff, #f6f8ff);
+  background-color: #ffffff;
   display: flex;
   align-items: center;
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
 }
 header img {
   height: 50px;
   margin-right: 1rem;
 }
 header h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0;
+  font-weight: 600;
 }
 header h1 span:nth-child(1) { color: #000; }
-header h1 span:nth-child(2) { color: gray; }
+header h1 span:nth-child(2) { color: #888; }
 
+/* --------- FILTROS --------- */
 .filtros {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
   padding: 2rem;
   flex-wrap: wrap;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  background-color: #f9f9f9;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
-
 select {
-  padding: 0.5rem;
+  padding: 0.6rem 0.8rem;
   font-size: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
+  background-color: white;
+  color: #333;
 }
 
+/* --------- DIV TAERJETAS --------- */
+#page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --------- TARJETAS DE CV --------- */
 #contenedor {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   padding: 2rem;
 }
-
 .cv {
-  background: linear-gradient(135deg, #ffffff, #f0f4ff);
-  border-left: 6px solid #6a7dfd;
-  padding: 1rem 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-  transition: 0.3s ease;
+  background: #ffffff;
+  border-left: 4px solid #000;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
 }
 .cv:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 .cv h3 {
   font-size: 1.2rem;
-  color: #2c3e50;
+  font-weight: 600;
   margin: 0 0 0.5rem 0;
+  color: #111;
 }
 .cv p {
-  margin: 0.2rem 0;
+  margin: 0.3rem 0;
 }
 .cv a {
   display: inline-block;
-  margin-top: 0.5rem;
-  color: #6a7dfd;
-  font-weight: 600;
-  text-decoration: none;
-}
-.cv a:hover {
+  margin-top: 0.75rem;
+  color: #111;
+  font-weight: 500;
   text-decoration: underline;
 }
+.cv a:hover {
+  opacity: 0.7;
+}
 
+/* --------- FOOTER --------- */
 footer {
   text-align: center;
-  padding: 1rem;
-  background-color: #eaf0ff;
+  padding: 1.2rem;
+  background-color: #fafafa;
+  font-size: 0.9rem;
+  color: #888;
+  border-top: 1px solid #eee;
+}
+
+/* --------- LOGIN --------- */
+.login-container {
+  max-width: 420px;
+  margin: 4rem auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+.login-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+}
+.login-container button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #000;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+.login-container button:hover {
+  background-color: #333;
+}
+.login-footer {
+  text-align: center;
+  margin-top: 1rem;
   font-size: 0.9rem;
   color: #666;
-  margin-top: 2rem;
 }
