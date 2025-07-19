@@ -25,39 +25,7 @@
     </div>
   </div>
 
-  <footer>
-    &copy; Nucleate Argentina - Todos los derechos reservados
-  </footer>
-
-  <script>
-    async function registrar() {
-      const email = document.getElementById("email").value.trim();
-      const password = document.getElementById("password").value;
-      const confirm = document.getElementById("confirm").value;
-
-      if (!email || !password || !confirm) {
-        alert("Por favor completá todos los campos.");
-        return;
-      }
-      if (password !== confirm) {
-        alert("Las contraseñas no coinciden.");
-        return;
-      }
-
-      const res = await fetch("http://localhost:3000/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (res.ok) {
-        alert("Registro exitoso. Ahora podés iniciar sesión.");
-        window.location.href = "login.html";
-      } else {
-        const err = await res.json();
-        alert(err.error || "Error al registrarse.");
-      }
-    }
-  </script>
+  <footer>&copy; Nucleate Argentina - Todos los derechos reservados</footer>
+  <script src="main.js"></script>
 </body>
 </html>
