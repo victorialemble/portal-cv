@@ -4,29 +4,26 @@ Este es un proyecto funcional desarrollado como prototipo para visualizar perfil
 
 ---
 
-## 🎯 Funcionalidades principales
+## Funcionalidades principales
 
 - Registro de usuarios únicamente con dominios autorizados
 - Login y logout con persistencia de sesión usando `localStorage`
 - Carga dinámica de CVs desde una planilla de Google Sheets
 - Filtros interactivos por carrera y provincia
 - Estilo moderno tipo "black & white"
-- Footer anclado al fondo
 - Código modular unificado en `main.js`
 
 ---
 
-## 🚀 Ver en línea
+## Ver en línea
 
 Este sitio está publicado con **GitHub Pages**.
 
-🔗 [https://tu-usuario.github.io/portal-cv](https://tu-usuario.github.io/portal-cv)
-
-> Reemplazá `tu-usuario` por tu nombre real de GitHub.
+https://victorialemble.github.io/portal-cv 
 
 ---
 
-## 📦 Archivos importantes
+## Archivos importantes
 
 - `index.html`: Página principal con los CVs
 - `login.html`: Inicio de sesión
@@ -34,11 +31,10 @@ Este sitio está publicado con **GitHub Pages**.
 - `styles.css`: Estilos globales
 - `main.js`: Lógica unificada del sitio
 - `logo-nucleate.png`: Logo institucional
-- `fondo-esferas.png`: Imagen opcional de fondo
 
 ---
 
-## 📝 Instrucciones de uso
+## Instrucciones de uso
 
 ### Registro
 
@@ -47,7 +43,7 @@ Este sitio está publicado con **GitHub Pages**.
 3. Completá la contraseña y confirmación
 4. Si el dominio es válido, el sistema guarda tus datos en `localStorage`
 
-### 🔒 Dominios autorizados para el registro
+### Dominios autorizados para el registro
 
 Solo pueden registrarse emails que terminen en alguno de los siguientes dominios:
 
@@ -80,15 +76,14 @@ Cualquier intento de registro con un dominio no incluido será rechazado automá
 
 ---
 
-## 🔐 Seguridad
+## Seguridad
 
 Este proyecto es un prototipo. La autenticación y almacenamiento de contraseñas se hacen en `localStorage` sin cifrado ni backend. **No debe usarse en producción tal como está**.
 
 ---
 
-## 🧪 Planilla de Google Sheets
+##  Planilla de Google Sheets
 
 El archivo de CVs se carga desde una planilla de Google Sheets pública, publicada como CSV. Podés reemplazarla modificando la URL en `main.js`:
 
-```js
 const SHEET_URL = "https://docs.google.com/spreadsheets/d/e/XXX/pub?output=csv";
